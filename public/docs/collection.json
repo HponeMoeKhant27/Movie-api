@@ -1,0 +1,425 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "9ece75a0-2432-445d-b525-f599b453c4b9",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieve a list of movies.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/1\/movies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/1\/movies"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"limit\":16,\"offset\":15}"
+                        },
+                        "description": "Routing: \/movies",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"code\":200,\"meta\":{\"method\":\"GET\",\"endpoint\":\"\\\/api\\\/1\\\/movies\",\"limit\":16,\"offset\":15},\"data\":[{\"id\":9,\"title\":\"Dr.\",\"summary\":\"Impedit eum ea et sit rerum molestias rerum molestias et quis et reprehenderit et molestiae tempora tenetur sed rerum aliquid placeat accusantium quia sint non rerum velit corporis quo possimus consequuntur magnam doloribus voluptas minima est eos.\",\"cover_image\":\"\",\"generes\":\"Romance\",\"author\":\"Bethel Ebert III\",\"tags\":\"tag-8\",\"imdb_rate\":8,\"created_at\":\"06-12-1975\",\"updated_at\":\"06-12-1975\",\"comments\":[],\"related_movie\":[]},{\"id\":2,\"title\":\"Ms.\",\"summary\":\"Deserunt doloribus magni possimus sint consequuntur voluptatum nesciunt rerum sed corporis delectus voluptas delectus quisquam impedit nostrum culpa atque quo nobis voluptate quis tempore rem adipisci quo autem quasi rerum voluptatibus porro voluptate aut excepturi.\",\"cover_image\":\"\",\"generes\":\"Drama\",\"author\":\"Prof. Abbey Harber\",\"tags\":\"tag-1\",\"imdb_rate\":1,\"created_at\":\"11-11-1971\",\"updated_at\":\"11-11-1971\",\"comments\":[],\"related_movie\":[]},{\"id\":20,\"title\":\"Miss\",\"summary\":\"Recusandae est voluptas dolorum porro rerum id omnis suscipit suscipit quos sed recusandae rem nihil corrupti dolorum quibusdam velit alias praesentium enim iusto impedit possimus aperiam quam ut repellat eum soluta optio animi est.\",\"cover_image\":\"\",\"generes\":\"Adventure\",\"author\":\"Myrl Pollich MD\",\"tags\":\"tag-19\",\"imdb_rate\":19,\"created_at\":\"13-08-1970\",\"updated_at\":\"13-08-1970\",\"comments\":[],\"related_movie\":[]},{\"id\":11,\"title\":\"Mr.\",\"summary\":\"Et nam amet assumenda sequi est et consequatur commodi eos sapiente voluptatem quis molestiae accusamus impedit ratione at aperiam molestiae odio animi.\",\"cover_image\":\"\",\"generes\":\"Animation\",\"author\":\"Brendon Emmerich\",\"tags\":\"tag-10\",\"imdb_rate\":10,\"created_at\":\"07-05-1970\",\"updated_at\":\"07-05-1970\",\"comments\":[],\"related_movie\":[]},{\"id\":12,\"title\":\"Mrs.\",\"summary\":\"Sed harum perferendis minus atque quos laborum iste iste enim id esse et illo mollitia a in dolorem rerum sit qui corporis.\",\"cover_image\":\"\",\"generes\":\"Horror\",\"author\":\"Hollie Krajcik\",\"tags\":\"tag-11\",\"imdb_rate\":11,\"created_at\":\"30-03-1970\",\"updated_at\":\"30-03-1970\",\"comments\":[],\"related_movie\":[]}],\"error\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show movie",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/1\/movies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/1\/movies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "facere",
+                                    "description": "The ID of the movie."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"Server Error\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "User login API method",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/1\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/1\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Comment",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/1\/comments",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/1\/comments"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"alycia.green@example.com\",\"movie_id\":5,\"comment\":\"\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Comment",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/1\/comments\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/1\/comments\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "voluptas",
+                                    "description": "The ID of the comment."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"\",\"comment\":\"\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Comment",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/1\/comments\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/1\/comments\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "velit",
+                                    "description": "The ID of the comment."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create movie",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/1\/movies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/1\/movies"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update movie",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/1\/movies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/1\/movies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "facere",
+                                    "description": "The ID of the movie."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"\",\"summary\":\"\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete movie",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/1\/movies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/1\/movies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "explicabo",
+                                    "description": "The ID of the movie."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Upload Image",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/1\/movies\/:id\/upload",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/1\/movies\/:id\/upload",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "occaecati",
+                                    "description": "The ID of the movie."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

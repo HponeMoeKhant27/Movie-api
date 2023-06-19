@@ -1,0 +1,527 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/1/movies:
+    get:
+      summary: 'Retrieve a list of movies.'
+      description: 'Routing: /movies'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  code: 200
+                  meta:
+                    method: GET
+                    endpoint: /api/1/movies
+                    limit: 16
+                    offset: 15
+                  data:
+                    -
+                      id: 9
+                      title: Dr.
+                      summary: 'Impedit eum ea et sit rerum molestias rerum molestias et quis et reprehenderit et molestiae tempora tenetur sed rerum aliquid placeat accusantium quia sint non rerum velit corporis quo possimus consequuntur magnam doloribus voluptas minima est eos.'
+                      cover_image: ''
+                      generes: Romance
+                      author: 'Bethel Ebert III'
+                      tags: tag-8
+                      imdb_rate: 8
+                      created_at: 06-12-1975
+                      updated_at: 06-12-1975
+                      comments: []
+                      related_movie: []
+                    -
+                      id: 2
+                      title: Ms.
+                      summary: 'Deserunt doloribus magni possimus sint consequuntur voluptatum nesciunt rerum sed corporis delectus voluptas delectus quisquam impedit nostrum culpa atque quo nobis voluptate quis tempore rem adipisci quo autem quasi rerum voluptatibus porro voluptate aut excepturi.'
+                      cover_image: ''
+                      generes: Drama
+                      author: 'Prof. Abbey Harber'
+                      tags: tag-1
+                      imdb_rate: 1
+                      created_at: 11-11-1971
+                      updated_at: 11-11-1971
+                      comments: []
+                      related_movie: []
+                    -
+                      id: 20
+                      title: Miss
+                      summary: 'Recusandae est voluptas dolorum porro rerum id omnis suscipit suscipit quos sed recusandae rem nihil corrupti dolorum quibusdam velit alias praesentium enim iusto impedit possimus aperiam quam ut repellat eum soluta optio animi est.'
+                      cover_image: ''
+                      generes: Adventure
+                      author: 'Myrl Pollich MD'
+                      tags: tag-19
+                      imdb_rate: 19
+                      created_at: 13-08-1970
+                      updated_at: 13-08-1970
+                      comments: []
+                      related_movie: []
+                    -
+                      id: 11
+                      title: Mr.
+                      summary: 'Et nam amet assumenda sequi est et consequatur commodi eos sapiente voluptatem quis molestiae accusamus impedit ratione at aperiam molestiae odio animi.'
+                      cover_image: ''
+                      generes: Animation
+                      author: 'Brendon Emmerich'
+                      tags: tag-10
+                      imdb_rate: 10
+                      created_at: 07-05-1970
+                      updated_at: 07-05-1970
+                      comments: []
+                      related_movie: []
+                    -
+                      id: 12
+                      title: Mrs.
+                      summary: 'Sed harum perferendis minus atque quos laborum iste iste enim id esse et illo mollitia a in dolorem rerum sit qui corporis.'
+                      cover_image: ''
+                      generes: Horror
+                      author: 'Hollie Krajcik'
+                      tags: tag-11
+                      imdb_rate: 11
+                      created_at: 30-03-1970
+                      updated_at: 30-03-1970
+                      comments: []
+                      related_movie: []
+                  error: []
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  code:
+                    type: integer
+                    example: 200
+                  meta:
+                    type: object
+                    example:
+                      method: GET
+                      endpoint: /api/1/movies
+                      limit: 16
+                      offset: 15
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 9
+                        title: Dr.
+                        summary: 'Impedit eum ea et sit rerum molestias rerum molestias et quis et reprehenderit et molestiae tempora tenetur sed rerum aliquid placeat accusantium quia sint non rerum velit corporis quo possimus consequuntur magnam doloribus voluptas minima est eos.'
+                        cover_image: ''
+                        generes: Romance
+                        author: 'Bethel Ebert III'
+                        tags: tag-8
+                        imdb_rate: 8
+                        created_at: 06-12-1975
+                        updated_at: 06-12-1975
+                        comments: []
+                        related_movie: []
+                      -
+                        id: 2
+                        title: Ms.
+                        summary: 'Deserunt doloribus magni possimus sint consequuntur voluptatum nesciunt rerum sed corporis delectus voluptas delectus quisquam impedit nostrum culpa atque quo nobis voluptate quis tempore rem adipisci quo autem quasi rerum voluptatibus porro voluptate aut excepturi.'
+                        cover_image: ''
+                        generes: Drama
+                        author: 'Prof. Abbey Harber'
+                        tags: tag-1
+                        imdb_rate: 1
+                        created_at: 11-11-1971
+                        updated_at: 11-11-1971
+                        comments: []
+                        related_movie: []
+                      -
+                        id: 20
+                        title: Miss
+                        summary: 'Recusandae est voluptas dolorum porro rerum id omnis suscipit suscipit quos sed recusandae rem nihil corrupti dolorum quibusdam velit alias praesentium enim iusto impedit possimus aperiam quam ut repellat eum soluta optio animi est.'
+                        cover_image: ''
+                        generes: Adventure
+                        author: 'Myrl Pollich MD'
+                        tags: tag-19
+                        imdb_rate: 19
+                        created_at: 13-08-1970
+                        updated_at: 13-08-1970
+                        comments: []
+                        related_movie: []
+                      -
+                        id: 11
+                        title: Mr.
+                        summary: 'Et nam amet assumenda sequi est et consequatur commodi eos sapiente voluptatem quis molestiae accusamus impedit ratione at aperiam molestiae odio animi.'
+                        cover_image: ''
+                        generes: Animation
+                        author: 'Brendon Emmerich'
+                        tags: tag-10
+                        imdb_rate: 10
+                        created_at: 07-05-1970
+                        updated_at: 07-05-1970
+                        comments: []
+                        related_movie: []
+                      -
+                        id: 12
+                        title: Mrs.
+                        summary: 'Sed harum perferendis minus atque quos laborum iste iste enim id esse et illo mollitia a in dolorem rerum sit qui corporis.'
+                        cover_image: ''
+                        generes: Horror
+                        author: 'Hollie Krajcik'
+                        tags: tag-11
+                        imdb_rate: 11
+                        created_at: 30-03-1970
+                        updated_at: 30-03-1970
+                        comments: []
+                        related_movie: []
+                    items:
+                      type: object
+                  error:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: ''
+                  example: 16
+                offset:
+                  type: integer
+                  description: ''
+                  example: 15
+      security: []
+    post:
+      summary: 'Create movie'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/1/movies/{id}':
+    get:
+      summary: 'Show movie'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Server Error'
+                properties:
+                  message:
+                    type: string
+                    example: 'Server Error'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update movie'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 30 characters. Must be at least 0 characters.'
+                  example: ''
+                summary:
+                  type: string
+                  description: 'Must not be greater than 225 characters. Must be at least 0 characters.'
+                  example: ''
+      security: []
+    delete:
+      summary: 'Delete movie'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the movie.'
+        example: facere
+        required: true
+        schema:
+          type: string
+  /api/1/login:
+    post:
+      summary: 'User login API method'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/1/comments:
+    post:
+      summary: 'Create Comment'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: alycia.green@example.com
+                movie_id:
+                  type: integer
+                  description: ''
+                  example: 5
+                comment:
+                  type: string
+                  description: 'Must not be greater than 225 characters. Must be at least 0 characters.'
+                  example: ''
+              required:
+                - email
+                - movie_id
+                - comment
+      security: []
+  '/api/1/comments/{id}':
+    put:
+      summary: 'Update Comment'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 30 characters. Must be at least 0 characters.'
+                  example: ''
+                comment:
+                  type: string
+                  description: 'Must not be greater than 225 characters. Must be at least 0 characters.'
+                  example: ''
+      security: []
+    delete:
+      summary: 'Delete Comment'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the comment.'
+        example: voluptas
+        required: true
+        schema:
+          type: string
+  '/api/1/movies/{id}/upload':
+    post:
+      summary: 'Upload Image'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+              required:
+                - image
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the movie.'
+        example: occaecati
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Endpoints
+    description: ''

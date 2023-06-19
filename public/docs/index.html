@@ -1,0 +1,1276 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-3.37.2.js"></script>
+
+    <script src="../docs/js/theme-default-3.37.2.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                                                                            <ul id="tocify-header-0" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="introduction">
+                        <a href="#introduction">Introduction</a>
+                    </li>
+                                            
+                                                                    </ul>
+                                                <ul id="tocify-header-1" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="authenticating-requests">
+                        <a href="#authenticating-requests">Authenticating requests</a>
+                    </li>
+                                            
+                                                </ul>
+                    
+                    <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-1-movies">
+                        <a href="#endpoints-GETapi-1-movies">Retrieve a list of movies.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-1-movies--id-">
+                        <a href="#endpoints-GETapi-1-movies--id-">Show movie</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-1-login">
+                        <a href="#endpoints-POSTapi-1-login">User login API method</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-1-comments">
+                        <a href="#endpoints-POSTapi-1-comments">Create Comment</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-PUTapi-1-comments--id-">
+                        <a href="#endpoints-PUTapi-1-comments--id-">Update Comment</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-1-comments--id-">
+                        <a href="#endpoints-DELETEapi-1-comments--id-">Delete Comment</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-1-movies">
+                        <a href="#endpoints-POSTapi-1-movies">Create movie</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-PUTapi-1-movies--id-">
+                        <a href="#endpoints-PUTapi-1-movies--id-">Update movie</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-1-movies--id-">
+                        <a href="#endpoints-DELETEapi-1-movies--id-">Delete movie</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-1-movies--id--upload">
+                        <a href="#endpoints-POSTapi-1-movies--id--upload">Upload Image</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+        
+                        
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: June 19 2023</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://localhost</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+            <h2 id="endpoints-GETapi-1-movies">Retrieve a list of movies.</h2>
+
+<p>
+</p>
+
+<p>Routing: /movies</p>
+
+<span id="example-requests-GETapi-1-movies">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/1/movies" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"limit\": 16,
+    \"offset\": 15
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/1/movies"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "limit": 16,
+    "offset": 15
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-1-movies">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;code&quot;: 200,
+    &quot;meta&quot;: {
+        &quot;method&quot;: &quot;GET&quot;,
+        &quot;endpoint&quot;: &quot;/api/1/movies&quot;,
+        &quot;limit&quot;: 16,
+        &quot;offset&quot;: 15
+    },
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 9,
+            &quot;title&quot;: &quot;Dr.&quot;,
+            &quot;summary&quot;: &quot;Impedit eum ea et sit rerum molestias rerum molestias et quis et reprehenderit et molestiae tempora tenetur sed rerum aliquid placeat accusantium quia sint non rerum velit corporis quo possimus consequuntur magnam doloribus voluptas minima est eos.&quot;,
+            &quot;cover_image&quot;: &quot;&quot;,
+            &quot;generes&quot;: &quot;Romance&quot;,
+            &quot;author&quot;: &quot;Bethel Ebert III&quot;,
+            &quot;tags&quot;: &quot;tag-8&quot;,
+            &quot;imdb_rate&quot;: 8,
+            &quot;created_at&quot;: &quot;06-12-1975&quot;,
+            &quot;updated_at&quot;: &quot;06-12-1975&quot;,
+            &quot;comments&quot;: [],
+            &quot;related_movie&quot;: []
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Ms.&quot;,
+            &quot;summary&quot;: &quot;Deserunt doloribus magni possimus sint consequuntur voluptatum nesciunt rerum sed corporis delectus voluptas delectus quisquam impedit nostrum culpa atque quo nobis voluptate quis tempore rem adipisci quo autem quasi rerum voluptatibus porro voluptate aut excepturi.&quot;,
+            &quot;cover_image&quot;: &quot;&quot;,
+            &quot;generes&quot;: &quot;Drama&quot;,
+            &quot;author&quot;: &quot;Prof. Abbey Harber&quot;,
+            &quot;tags&quot;: &quot;tag-1&quot;,
+            &quot;imdb_rate&quot;: 1,
+            &quot;created_at&quot;: &quot;11-11-1971&quot;,
+            &quot;updated_at&quot;: &quot;11-11-1971&quot;,
+            &quot;comments&quot;: [],
+            &quot;related_movie&quot;: []
+        },
+        {
+            &quot;id&quot;: 20,
+            &quot;title&quot;: &quot;Miss&quot;,
+            &quot;summary&quot;: &quot;Recusandae est voluptas dolorum porro rerum id omnis suscipit suscipit quos sed recusandae rem nihil corrupti dolorum quibusdam velit alias praesentium enim iusto impedit possimus aperiam quam ut repellat eum soluta optio animi est.&quot;,
+            &quot;cover_image&quot;: &quot;&quot;,
+            &quot;generes&quot;: &quot;Adventure&quot;,
+            &quot;author&quot;: &quot;Myrl Pollich MD&quot;,
+            &quot;tags&quot;: &quot;tag-19&quot;,
+            &quot;imdb_rate&quot;: 19,
+            &quot;created_at&quot;: &quot;13-08-1970&quot;,
+            &quot;updated_at&quot;: &quot;13-08-1970&quot;,
+            &quot;comments&quot;: [],
+            &quot;related_movie&quot;: []
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;title&quot;: &quot;Mr.&quot;,
+            &quot;summary&quot;: &quot;Et nam amet assumenda sequi est et consequatur commodi eos sapiente voluptatem quis molestiae accusamus impedit ratione at aperiam molestiae odio animi.&quot;,
+            &quot;cover_image&quot;: &quot;&quot;,
+            &quot;generes&quot;: &quot;Animation&quot;,
+            &quot;author&quot;: &quot;Brendon Emmerich&quot;,
+            &quot;tags&quot;: &quot;tag-10&quot;,
+            &quot;imdb_rate&quot;: 10,
+            &quot;created_at&quot;: &quot;07-05-1970&quot;,
+            &quot;updated_at&quot;: &quot;07-05-1970&quot;,
+            &quot;comments&quot;: [],
+            &quot;related_movie&quot;: []
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;title&quot;: &quot;Mrs.&quot;,
+            &quot;summary&quot;: &quot;Sed harum perferendis minus atque quos laborum iste iste enim id esse et illo mollitia a in dolorem rerum sit qui corporis.&quot;,
+            &quot;cover_image&quot;: &quot;&quot;,
+            &quot;generes&quot;: &quot;Horror&quot;,
+            &quot;author&quot;: &quot;Hollie Krajcik&quot;,
+            &quot;tags&quot;: &quot;tag-11&quot;,
+            &quot;imdb_rate&quot;: 11,
+            &quot;created_at&quot;: &quot;30-03-1970&quot;,
+            &quot;updated_at&quot;: &quot;30-03-1970&quot;,
+            &quot;comments&quot;: [],
+            &quot;related_movie&quot;: []
+        }
+    ],
+    &quot;error&quot;: []
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-1-movies" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-1-movies"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-1-movies"></code></pre>
+</span>
+<span id="execution-error-GETapi-1-movies" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-1-movies"></code></pre>
+</span>
+<form id="form-GETapi-1-movies" data-method="GET"
+      data-path="api/1/movies"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-1-movies', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-1-movies"
+                    onclick="tryItOut('GETapi-1-movies');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-1-movies"
+                    onclick="cancelTryOut('GETapi-1-movies');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-1-movies" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/1/movies</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>limit</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="limit"
+               data-endpoint="GETapi-1-movies"
+               value="16"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>offset</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="offset"
+               data-endpoint="GETapi-1-movies"
+               value="15"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="endpoints-GETapi-1-movies--id-">Show movie</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-1-movies--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/1/movies/facere" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/1/movies/facere"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-1-movies--id-">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Server Error&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-1-movies--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-1-movies--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-1-movies--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-1-movies--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-1-movies--id-"></code></pre>
+</span>
+<form id="form-GETapi-1-movies--id-" data-method="GET"
+      data-path="api/1/movies/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-1-movies--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-1-movies--id-"
+                    onclick="tryItOut('GETapi-1-movies--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-1-movies--id-"
+                    onclick="cancelTryOut('GETapi-1-movies--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-1-movies--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/1/movies/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETapi-1-movies--id-"
+               value="facere"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the movie.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-POSTapi-1-login">User login API method</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-1-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/1/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/1/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-1-login">
+</span>
+<span id="execution-results-POSTapi-1-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-1-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-1-login"></code></pre>
+</span>
+<span id="execution-error-POSTapi-1-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-1-login"></code></pre>
+</span>
+<form id="form-POSTapi-1-login" data-method="POST"
+      data-path="api/1/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-1-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-1-login"
+                    onclick="tryItOut('POSTapi-1-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-1-login"
+                    onclick="cancelTryOut('POSTapi-1-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-1-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/1/login</code></b>
+        </p>
+                    </form>
+
+            <h2 id="endpoints-POSTapi-1-comments">Create Comment</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-1-comments">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/1/comments" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"alycia.green@example.com\",
+    \"movie_id\": 5,
+    \"comment\": \"\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/1/comments"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "alycia.green@example.com",
+    "movie_id": 5,
+    "comment": ""
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-1-comments">
+</span>
+<span id="execution-results-POSTapi-1-comments" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-1-comments"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-1-comments"></code></pre>
+</span>
+<span id="execution-error-POSTapi-1-comments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-1-comments"></code></pre>
+</span>
+<form id="form-POSTapi-1-comments" data-method="POST"
+      data-path="api/1/comments"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-1-comments', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-1-comments"
+                    onclick="tryItOut('POSTapi-1-comments');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-1-comments"
+                    onclick="cancelTryOut('POSTapi-1-comments');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-1-comments" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/1/comments</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-1-comments"
+               value="alycia.green@example.com"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid email address.</p>
+        </p>
+                <p>
+            <b><code>movie_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="movie_id"
+               data-endpoint="POSTapi-1-comments"
+               value="5"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>comment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="comment"
+               data-endpoint="POSTapi-1-comments"
+               value=""
+               data-component="body" hidden>
+    <br>
+<p>Must not be greater than 225 characters. Must be at least 0 characters.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-PUTapi-1-comments--id-">Update Comment</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-1-comments--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/1/comments/voluptas" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"\",
+    \"comment\": \"\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/1/comments/voluptas"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "",
+    "comment": ""
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-1-comments--id-">
+</span>
+<span id="execution-results-PUTapi-1-comments--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-1-comments--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-1-comments--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-1-comments--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-1-comments--id-"></code></pre>
+</span>
+<form id="form-PUTapi-1-comments--id-" data-method="PUT"
+      data-path="api/1/comments/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-1-comments--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-1-comments--id-"
+                    onclick="tryItOut('PUTapi-1-comments--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-1-comments--id-"
+                    onclick="cancelTryOut('PUTapi-1-comments--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-1-comments--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/1/comments/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/1/comments/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="PUTapi-1-comments--id-"
+               value="voluptas"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the comment.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="PUTapi-1-comments--id-"
+               value=""
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid email address. Must not be greater than 30 characters. Must be at least 0 characters.</p>
+        </p>
+                <p>
+            <b><code>comment</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="comment"
+               data-endpoint="PUTapi-1-comments--id-"
+               value=""
+               data-component="body" hidden>
+    <br>
+<p>Must not be greater than 225 characters. Must be at least 0 characters.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-DELETEapi-1-comments--id-">Delete Comment</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-1-comments--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/1/comments/velit" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/1/comments/velit"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-1-comments--id-">
+</span>
+<span id="execution-results-DELETEapi-1-comments--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-1-comments--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-1-comments--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-1-comments--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-1-comments--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-1-comments--id-" data-method="DELETE"
+      data-path="api/1/comments/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-1-comments--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-1-comments--id-"
+                    onclick="tryItOut('DELETEapi-1-comments--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-1-comments--id-"
+                    onclick="cancelTryOut('DELETEapi-1-comments--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-1-comments--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/1/comments/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="DELETEapi-1-comments--id-"
+               value="velit"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the comment.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-POSTapi-1-movies">Create movie</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-1-movies">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/1/movies" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/1/movies"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-1-movies">
+</span>
+<span id="execution-results-POSTapi-1-movies" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-1-movies"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-1-movies"></code></pre>
+</span>
+<span id="execution-error-POSTapi-1-movies" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-1-movies"></code></pre>
+</span>
+<form id="form-POSTapi-1-movies" data-method="POST"
+      data-path="api/1/movies"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-1-movies', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-1-movies"
+                    onclick="tryItOut('POSTapi-1-movies');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-1-movies"
+                    onclick="cancelTryOut('POSTapi-1-movies');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-1-movies" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/1/movies</code></b>
+        </p>
+                    </form>
+
+            <h2 id="endpoints-PUTapi-1-movies--id-">Update movie</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-1-movies--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/1/movies/facere" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"\",
+    \"summary\": \"\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/1/movies/facere"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "",
+    "summary": ""
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-1-movies--id-">
+</span>
+<span id="execution-results-PUTapi-1-movies--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-1-movies--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-1-movies--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-1-movies--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-1-movies--id-"></code></pre>
+</span>
+<form id="form-PUTapi-1-movies--id-" data-method="PUT"
+      data-path="api/1/movies/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-1-movies--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-1-movies--id-"
+                    onclick="tryItOut('PUTapi-1-movies--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-1-movies--id-"
+                    onclick="cancelTryOut('PUTapi-1-movies--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-1-movies--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/1/movies/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="PUTapi-1-movies--id-"
+               value="facere"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the movie.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="PUTapi-1-movies--id-"
+               value=""
+               data-component="body" hidden>
+    <br>
+<p>Must not be greater than 30 characters. Must be at least 0 characters.</p>
+        </p>
+                <p>
+            <b><code>summary</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="summary"
+               data-endpoint="PUTapi-1-movies--id-"
+               value=""
+               data-component="body" hidden>
+    <br>
+<p>Must not be greater than 225 characters. Must be at least 0 characters.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-DELETEapi-1-movies--id-">Delete movie</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-1-movies--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/1/movies/explicabo" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/1/movies/explicabo"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-1-movies--id-">
+</span>
+<span id="execution-results-DELETEapi-1-movies--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-1-movies--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-1-movies--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-1-movies--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-1-movies--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-1-movies--id-" data-method="DELETE"
+      data-path="api/1/movies/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-1-movies--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-1-movies--id-"
+                    onclick="tryItOut('DELETEapi-1-movies--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-1-movies--id-"
+                    onclick="cancelTryOut('DELETEapi-1-movies--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-1-movies--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/1/movies/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="DELETEapi-1-movies--id-"
+               value="explicabo"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the movie.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-POSTapi-1-movies--id--upload">Upload Image</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-1-movies--id--upload">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/1/movies/occaecati/upload" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "image=@/tmp/phpQMMHcw" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/1/movies/occaecati/upload"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('image', document.querySelector('input[name="image"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-1-movies--id--upload">
+</span>
+<span id="execution-results-POSTapi-1-movies--id--upload" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-1-movies--id--upload"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-1-movies--id--upload"></code></pre>
+</span>
+<span id="execution-error-POSTapi-1-movies--id--upload" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-1-movies--id--upload"></code></pre>
+</span>
+<form id="form-POSTapi-1-movies--id--upload" data-method="POST"
+      data-path="api/1/movies/{id}/upload"
+      data-authed="0"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"multipart\/form-data","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-1-movies--id--upload', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-1-movies--id--upload"
+                    onclick="tryItOut('POSTapi-1-movies--id--upload');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-1-movies--id--upload"
+                    onclick="cancelTryOut('POSTapi-1-movies--id--upload');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-1-movies--id--upload" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/1/movies/{id}/upload</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="POSTapi-1-movies--id--upload"
+               value="occaecati"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the movie.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>image</code></b>&nbsp;&nbsp;<small>file</small>  &nbsp;
+                <input type="file"
+               name="image"
+               data-endpoint="POSTapi-1-movies--id--upload"
+               value=""
+               data-component="body" hidden>
+    <br>
+<p>Must be an image. Must not be greater than 2048 kilobytes.</p>
+        </p>
+        </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>
